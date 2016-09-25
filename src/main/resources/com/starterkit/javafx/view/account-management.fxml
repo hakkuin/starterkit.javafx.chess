@@ -16,6 +16,7 @@
     <TextField fx:id="loginField" layoutX="108.0" layoutY="25.0" prefHeight="32.0" prefWidth="200.0" />
     <TextField fx:id="nameField" layoutX="108.0" layoutY="81.0" prefHeight="32.0" prefWidth="200.0" />
     <TextField fx:id="surnameField" layoutX="108.0" layoutY="140.0" prefHeight="32.0" prefWidth="200.0" />
+    <!-- REV: lepiej, gdy kontolki sa w kolejnosci takiej jak na ekranie -->
     <Button fx:id="searchButton" layoutX="341.0" layoutY="25.0" minHeight="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" onAction="#searchButtonAction" text="%button.search" />
     <Button fx:id="deleteAccountButton" layoutX="491.0" layoutY="450.0" minHeight="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="124.0" onAction="#deleteAccountButtonAction" text="Delete Account" />
     <Button fx:id="editProfileButton" layoutX="640.0" layoutY="450.0" minHeight="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" onAction="#editProfileButtonAction" text="Edit Profile" />

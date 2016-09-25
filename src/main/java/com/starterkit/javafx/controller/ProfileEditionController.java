@@ -120,6 +120,7 @@ public class ProfileEditionController {
 		aboutMeField.textProperty().bindBidirectional(model.aboutMeProperty());
 		lifeMottoField.textProperty().bindBidirectional(model.lifeMottoProperty());
 
+		// REV: po co, skoro masz bindy?
 		loginLabel.setText(model.getLogin());
 		nameField.setText(model.getName());
 		surnameField.setText(model.getSurname());
@@ -166,6 +167,7 @@ public class ProfileEditionController {
 				model.getAboutMe(),
 				model.getLifeMotto());
 		
+		// REV: wywolanie powinno byc w osobnym watku
 		dataProvider.updateAccount(editedProfile);
 
 		((Node) event.getSource()).getScene().getWindow().hide();

@@ -42,6 +42,7 @@ public class Startup extends Application {
 		Parent rootSearch = FXMLLoader.load(getClass().getResource("/com/starterkit/javafx/view/account-management.fxml"), //
 				ResourceBundle.getBundle("com/starterkit/javafx/bundle/base"));
 		
+		// REV: zakomentowany kod
 //		Parent rootEdit = FXMLLoader.load(getClass().getResource("/com/starterkit/javafx/view/account-edition.fxml"), //
 //				ResourceBundle.getBundle("com/starterkit/javafx/bundle/base"));
 

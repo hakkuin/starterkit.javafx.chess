@@ -23,6 +23,7 @@ public class DataProviderImpl implements DataProvider {
 
 	private static final Logger LOG = Logger.getLogger(DataProviderImpl.class);
 
+	// REV: adres a konfiguracji
 	private static final String BASE_URL = "http://localhost:8090/user";
 
 	public DataProviderImpl() {
@@ -36,10 +37,12 @@ public class DataProviderImpl implements DataProvider {
 		LOG.debug("Argument: name:" + name);
 		LOG.debug("Argument: surname:" + surname);
 
+		// REV: lepiej utworzyc raz i zapisac jako atrybut klasy
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<List<AccountVO>> profilesResponse;
 		List<AccountVO> result = null;
 
+		// REV: TODOs
 		// TODO: move http adress to external location: config file / run
 		// arguments / etc.
 		// TODO: sprawdzic rzucane wyjatki przez RestTemplate
@@ -47,12 +50,14 @@ public class DataProviderImpl implements DataProvider {
 		// TODO: test: bez postawionego serwera
 		try {
 			profilesResponse = restTemplate.exchange(
+					// REV: trzeba zakodowac parametry - URLEncoder.encode(String, String)
 					BASE_URL + "/search?login=" + login + "&name=" + name + "&surname=" + surname, HttpMethod.GET, null,
 					new ParameterizedTypeReference<List<AccountVO>>() {
 					});
 
 			result = profilesResponse.getBody();
 		} catch (Exception e) {
+			// REV: tak jak napisane w TODO :)
 			// TODO: replace with LOG.error... / drugim parametrem erro jest
 			// caly error - dodac go
 			// TODO: przekazac wyjatek wyzej, utworzyc customowy wyjatek
@@ -70,6 +75,7 @@ public class DataProviderImpl implements DataProvider {
 		LOG.debug("Entering findAccount()");
 		LOG.debug("Argument: login:" + login);
 
+		// REV: j.w.
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<List<AccountVO>> profilesResponse;
 		List<AccountVO> result = null;
@@ -81,6 +87,7 @@ public class DataProviderImpl implements DataProvider {
 
 			result = profilesResponse.getBody();
 		} catch (Exception e) {
+			// REV: j.w.
 			LOG.debug("Exception occurred: " + e.getMessage());
 		}
 
@@ -94,6 +101,7 @@ public class DataProviderImpl implements DataProvider {
 		LOG.debug("Entering updateAccount()");
 		LOG.debug("Argument: accountToUpdate:" + accountToUpdate);
 		
+		// REV: j.w.
 		RestTemplate restTemplate = new RestTemplate();
 
 		try {
@@ -101,6 +109,7 @@ public class DataProviderImpl implements DataProvider {
 			restTemplate.exchange(BASE_URL, HttpMethod.PUT, entity, AccountVO.class);
 			
 		} catch (Exception e) {
+			// REV: j.w.
 			LOG.debug("Exception occurred: " + e.getMessage());
 		}
 
@@ -112,12 +121,14 @@ public class DataProviderImpl implements DataProvider {
 		LOG.debug("Entering deleteAccount()");
 		LOG.debug("Argument: id:" + id);
 		
+		// REV: j.w.
 		RestTemplate restTemplate = new RestTemplate();
 
 		try {
 			restTemplate.exchange(BASE_URL + "/" + id, HttpMethod.DELETE, null, String.class);
 			
 		} catch (Exception e) {
+			// REV: j.w.
 			LOG.debug("Exception occurred: " + e.getMessage());
 		}
 

@@ -95,6 +95,7 @@ public class AccountSearchController {
 
 	private ProfileEditionController profileEditionController;
 	
+	// REV: pola nieuzywane usuwamy
 	@SuppressWarnings("unused")
 	private ProfileEdition profileEditionModel;
 
@@ -121,6 +122,7 @@ public class AccountSearchController {
 		try {
 			profileEditionModalStage.setScene(new Scene(loader.load()));
 		} catch (IOException e) {
+			// REV: nie ma sensu kontynuowac jesli nie dalo sie zaladowac pliku
 			LOG.error("IOException caught: " + e.getMessage());
 		}
 
@@ -183,6 +185,7 @@ public class AccountSearchController {
 				
 				if (newValue != null) {
 					LOG.debug("Buttons activated");
+					// REV: bindy
 					deleteAccountButton.setDisable(false);
 					editProfileButton.setDisable(false);
 				}
@@ -218,6 +221,7 @@ public class AccountSearchController {
 	private void deleteAccountButtonAction(ActionEvent event) throws Exception {
 		LOG.debug("'Delete' button clicked");
 
+		// REV: wywolanie powinny byc osobnym watku
 		dataProvider.deleteAccount(model.getSelectedAccount().getId());
 
 		searchAccounts();
@@ -274,6 +278,7 @@ public class AccountSearchController {
 			@Override
 			protected void failed() {
 				Alert alert = new Alert(AlertType.ERROR);
+				// REV: teksty z bundla
 				alert.setTitle("Error");
 				alert.setHeaderText("Printer error");
 				alert.setContentText("Paper not loaded");
@@ -323,6 +328,7 @@ public class AccountSearchController {
 			@Override
 			protected void failed() {
 				Alert alert = new Alert(AlertType.ERROR);
+				// REV: teksty z bundla
 				alert.setTitle("Error");
 				alert.setHeaderText("Printer error");
 				alert.setContentText("Paper not loaded");
@@ -333,12 +339,13 @@ public class AccountSearchController {
 
 		new Thread(backgroundTask).start();
 
+		// REV: pokazujesz drugie okno zanim ustawisz dane do edycji
 		profileEditionModalStage.show();
 	}
 
 	private void resetButtons() {
 		LOG.debug("resetButtons() called");
-		
+		// REV: bindy
 		deleteAccountButton.setDisable(true);
 		editProfileButton.setDisable(true);
 	}

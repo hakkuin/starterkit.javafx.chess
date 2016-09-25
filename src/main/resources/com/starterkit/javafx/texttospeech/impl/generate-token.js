@@ -1,3 +1,4 @@
+/* REV: nieuzywany plik */
 var window = {};
 
 var cM = function(a) {

@@ -8,7 +8,8 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="652.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.starterkit.javafx.controller.ProfileEditionController">
   <children>
-  
+
+    <!-- REV: teksty z bundla -->  
     <Label fx:id="loginLabel" layoutX="14.0" layoutY="31.0" text="Login" />
     <Label layoutX="14.0" layoutY="87.0" text="First Name" />
     <Label layoutX="14.0" layoutY="143.0" text="Last Name" />

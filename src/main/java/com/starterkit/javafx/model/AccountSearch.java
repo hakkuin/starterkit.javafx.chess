@@ -25,6 +25,7 @@ public class AccountSearch {
 	private final ListProperty<AccountVO> result = new SimpleListProperty<>(
 			FXCollections.observableList(new ArrayList<>()));
 
+	// REV: to propertisy nie sa uzywane
 	private BooleanProperty deleteButtonProperty = new SimpleBooleanProperty();
 	private BooleanProperty editButtonProperty = new SimpleBooleanProperty();
 	
